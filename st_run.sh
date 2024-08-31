@@ -1,0 +1,1 @@
+streamlit run linear_regression_streamlit_2.py
