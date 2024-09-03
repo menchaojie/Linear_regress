@@ -49,14 +49,16 @@ def plot_linear_regression(x, y, a, b, g):
     plt.plot(a, y_hat(a, g), color='b')
     plt.fill_between(a, y_hat(a, g)+0.2, y_hat(a, g)-0.2, alpha=0.1, color='b')
     plt.title(f'The order of polynomial is : {g.m-1}')
-    plt.legend(['original funciton', 'fitted funciton', 'data_with_noise'])
+    plt.legend(['data_with_noise', 'original funciton', 'fitted funciton'])
     # plt.show()
+
 
 def fig2img(fig):
     fig.canvas.draw()
     w, h = fig.canvas.get_width_height()
     img = Image.frombytes("RGB", (w, h), fig.canvas.tostring_rgb())
     return img
+
 
 class animation_regression():
     def __init__(self, x, y, a, b, g):
@@ -99,7 +101,6 @@ def analytical_solution_w(x, y, g):
     g.w = np.array(np.linalg.inv(X.T * X) * X.T * y).flatten()
 
 
-
 if __name__ == "__main__":
 
     os.makedirs(os.path.join('.', 'data'), exist_ok=True)
@@ -117,15 +118,13 @@ if __name__ == "__main__":
     # progress_bar =  st.sidebar.progress(0)
     # progress_text = st.sidebar.empty()
 
-
-    begin_text =  st.empty()
+    begin_text = st.empty()
     display_fit = st.empty()
 
     progress_text = st.empty()
-    progress_bar =  st.progress(0)
+    progress_bar = st.progress(0)
 
-    end_text =  st.empty()
-
+    end_text = st.empty()
 
     print('The initial parameters:')
     print(g.w)
@@ -155,7 +154,6 @@ if __name__ == "__main__":
 
     progress_bar.progress(0.999999)
     progress_text.text(f'progress ...  100 / 100')
-
 
     # analytical_solution_w(x, y, g)
 
