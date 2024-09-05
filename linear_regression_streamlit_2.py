@@ -71,7 +71,7 @@ class animation_regression():
         self.ax.plot(a, b, color='r')
         self.ln, = self.ax.plot(a, y_hat(a, g), color='b')
         plt.title(f'The order of polynomial is : {g.m-1}')
-        plt.legend(['original funciton', 'fitted funciton', 'data_with_noise'])
+        plt.legend(['data_with_noise', 'original funciton', 'fitted funciton'])
 
     def update_g(self, g):
         self.ln.set_ydata(y_hat(self.a, g))
